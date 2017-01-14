@@ -1,11 +1,11 @@
 import { JokeComponent } from './joke.component';
 import { Observable } from 'rxjs/Observable';
 import { TestBed, ComponentFixture, tick, async, fakeAsync } from '@angular/core/testing';
-import { JokeService } from '../joke.service';
 import { DebugElement } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import 'rxjs/Rx';
 import { By } from '@angular/platform-browser';
+import { JokeService } from './joke.service';
 
 describe(`Component: JokeComponent`, () => {
 
@@ -16,9 +16,9 @@ describe(`Component: JokeComponent`, () => {
 
   beforeEach(() => {
 
-    let fakeJokeService = {
-      getJoke: () => Observable.of(fakeJoke)
-    };
+    // let fakeJokeService = {
+    //   getJoke: () => Observable.of(fakeJoke)
+    // };
     //
 
     TestBed.configureTestingModule({
@@ -46,8 +46,7 @@ describe(`Component: JokeComponent`, () => {
 
   it(`should set the joke property when component initialised`, () => {
     spyOn(jokeService, 'getJoke')
-      .and.
-      returnValue(Observable.of('FAKE JOKE'));
+      .and.returnValue(Observable.of('FAKE JOKE'));
 
     fixture.detectChanges();
 
@@ -55,24 +54,12 @@ describe(`Component: JokeComponent`, () => {
   });
 
   it(`should have the joke content bound to the the page`, () => {
-    let spy = spyOn(jokeService, 'getJoke')
+    spyOn(jokeService, 'getJoke')
       .and.returnValue(Observable.of('FAKE JOKE'));
 
     fixture.detectChanges();
 
     let el = de.query(By.css('p')).nativeElement;
-
-    expect(spy).toHave
-
-
-
-
-
-
-
-
-
-
 
     expect(el.textContent).toEqual('FAKE JOKE');
 
