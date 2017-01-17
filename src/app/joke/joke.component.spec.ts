@@ -59,7 +59,7 @@ describe(`Component: JokeComponent`, () => {
 
     fixture.detectChanges();
 
-    let el = de.query(By.css('p')).nativeElement;
+    const el = de.query(By.css('p')).nativeElement;
 
     expect(el.textContent).toEqual('FAKE JOKE');
 
@@ -72,9 +72,9 @@ describe(`Component: JokeComponent`, () => {
       Observable.of('FAKE JOKE 2').timeout(2000));
 
     fixture.detectChanges();
-    let el = de.query(By.css('p')).nativeElement;
+    const el = de.query(By.css('p')).nativeElement;
     expect(el.textContent).toEqual('FAKE JOKE');
-    let button = fixture.debugElement.query(By.css('button')).nativeElement;
+    const button = fixture.debugElement.query(By.css('button')).nativeElement;
     button.click();
     fixture.detectChanges();
     tick(3000);
@@ -88,9 +88,9 @@ describe(`Component: JokeComponent`, () => {
       Observable.of('FAKE JOKE 2'));
 
     fixture.detectChanges();
-    let el = de.query(By.css('p')).nativeElement;
+    const el = de.query(By.css('p')).nativeElement;
     expect(el.textContent).toEqual('FAKE JOKE');
-    let button = fixture.debugElement.query(By.css('button')).nativeElement;
+    const button = fixture.debugElement.query(By.css('button')).nativeElement;
     button.click();
     fixture.whenStable().then(() => {
       fixture.detectChanges();
