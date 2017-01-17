@@ -21,6 +21,12 @@ describe(`Component: JokeComponent`, () => {
     // };
     //
 
+    // let fakeJokeService = jasmine.createSpyObj('jokeService', ['getJoke']);
+
+    //    const component = new JokeComponent(fakeJokeService);
+    //    const component = new JokeComponent(null);
+
+
     TestBed.configureTestingModule({
       imports: [HttpModule],
       declarations: [JokeComponent],
@@ -43,6 +49,11 @@ describe(`Component: JokeComponent`, () => {
   it(`should have a title of "Chuck Norris Quotes"`, () => {
     expect(component.title).toEqual('Chuck Norris Jokes');
   });
+
+//     it(`should set joke when component is initialised `, () => {
+// component.ngOnInit(); 
+//    expect(component.joke).toEqual(‘FAKE_JOKE’);
+//   });
 
   it(`should set the joke property when component initialised`, () => {
     spyOn(jokeService, 'getJoke')
